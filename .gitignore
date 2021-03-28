@@ -18,7 +18,8 @@ media
 
 # Environments
 # .env
-.env/
+.env
+.env-db
 .venv/
 env/
 venv/

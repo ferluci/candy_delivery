@@ -20,7 +20,7 @@ from candy_delivery.delivery.views import *
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-
+    path('health/', health),
     re_path(r'couriers/?$', add_couriers),
     re_path(r'couriers/(?P<courier_id>\d+)\/?$', CouriersView.as_view()),
 

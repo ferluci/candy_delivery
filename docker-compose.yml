@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env-db
+  web:
+    build: .
+    restart: always
+    command: gunicorn candy_delivery.wsgi:application --bind 0.0.0.0:8080
+    env_file:
+      - ./.env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
